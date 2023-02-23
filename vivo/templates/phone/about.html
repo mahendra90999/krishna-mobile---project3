@@ -1,0 +1,97 @@
+{% extends 'phone/basic.html' %}
+
+{% block title %} About Us {%endblock%}
+{% block css %}
+<style>
+    img.first {
+        height: 450px;
+        width: 350px;
+    }
+
+    img.second{
+        height: 550px;
+        width: 100%;
+    }
+    p{
+        font-family:'Times New Roman', Times, serif;
+        font-size:larger;
+    }
+    
+    
+</style>
+{%endblock%}
+
+{% block body %}
+
+
+<div class="container-fluid ">
+    <div class="row">
+
+        <div class="col-6 bg-secondary border border-3 border-white rounded-5 ">
+            <div class="align-self-center">
+                {% load static %}
+                <img class=" mx-auto my-4 d-block rounded-5 border border-white self first " src="{%static 'phone/man.jpeg'%}"
+                    alt="mahendra vijay patil" />
+            </div>
+        </div>
+        <div class="col text-black text-center align-self-center border border-3 border-dark rounded-5 ">
+            <h1 class="display-4 fw-bolder pt-5">About Us</h1>
+            <div class="text-black py-auto ">
+                <p class="pt-5 pb-5 mx-5">We’ve put our proceeded progress down to knowing what buyers and organizations
+                    require, and having a broad scope of the best frill for the most recent gadgets — both integrated
+                    with our reality class client benefit. XYZ is focused on giving superb client administration and we
+                    expect to givesite.</p>
+                <div class="text-center pb-5"><a class="btn btn-outline-dark mt-auto" href="#more_section">Know more</a></div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- ____________________________________________________ -->
+
+    <div class="container-fluid" id="more_section">
+        <div class="m-module-text__wrapper">
+            <div class="m-module-text__header">
+                <h3 class="m-module-text__title a-title display-4 fw-bolder"><u>Mission and Values</u></h3>
+            </div>
+
+            <div class="row">
+            <div class="col-6 m-module-text__content">
+            <figure class="m-module-text__image">
+                <div class="a-image border rounded-5 border-dark border-4 bg-black  ">
+                    <img src="https://thumbs.dreamstime.com/b/mobile-phones-10132000.jpg"  alt="" class="border-dark rounded-5 second"/>
+                </div>
+            </figure>
+            </div>
+
+            <div class="col-6 align-self-center pt-5 col text-black text-center align-self-center border border-3 border-dark rounded-5 ">
+            <p class="align-self-center pt-5 pb-5">Our mission is simple: We seek the truth and help people understand the world. This mission is rooted
+                in our belief that great journalism has the power to make each reader’s life richer and more
+                fulfilling, and all of society stronger and more just.</p>
+                <p>&nbsp;</p>
+                
+                <div class="col m-module-text__content pb-5">
+                    <p>At The Times, our mission and values guide the work we do every day. By acting in their spirit, we
+                        serve readers and society, ensure the continued strength of our journalism and business, and foster
+                        a healthy and vibrant Times culture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr>
+
+
+
+
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}

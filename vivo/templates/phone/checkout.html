@@ -1,0 +1,261 @@
+{% extends 'phone/basic.html' %}
+{% block title%} Checkout - My Awesome Cart{% endblock %}
+
+{% block css %} 
+<style>
+body{
+    background-color: #eeeeee;
+}
+
+.footer-background{
+    background-color: rgb(204, 199, 199);
+}
+
+@media(max-width:991px){
+    #heading{
+        padding-left: 50px;
+    }
+    #prc{
+        margin-left: 70px;
+        padding-left: 110px;
+    }
+    #quantity{
+        padding-left: 48px;
+    }
+    #produc{
+        padding-left: 40px;
+    }
+    #total{
+        padding-left: 54px;
+    }
+}
+@media(max-width:767px){
+    .mobile{
+        font-size: 10px;
+    }
+    h5{
+        font-size: 14px;
+    }
+    h6{
+        font-size: 9px;
+    }
+    #mobile-font{
+        font-size: 11px;
+    }
+    #prc{
+        font-weight: 700;
+        margin-left: -45px;
+        padding-left: 105px;
+    }
+    #quantity{
+        font-weight: 700;
+        padding-left: 6px;
+    }
+    #produc{
+        font-weight: 700;
+        padding-left: 0px;
+    }
+    #total{
+        font-weight: 700;
+        padding-left: 9px;
+    }
+    #image{
+        width: 60px;
+        height: 60px;
+    }
+    .col{
+        width: 100%;
+    }
+    #zero-pad{
+        padding: 2%;
+        margin-left: 10px;
+    }
+    #footer-font{
+        font-size: 12px;
+    }
+    #heading{
+        padding-top: 15px;
+    }
+}
+</style>
+{%endblock%}
+{% block body %}
+<div class="" id="zero-pad">
+<div class="container bg-white rounded-top mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-10 col-12 pt-3">
+            <div class="d-flex flex-column pt-4">
+                <div><h5 class="text-uppercase font-weight-normal">CART</h5></div>
+                <div class="font-weight-normal">No. of Items : <span id="cart1" class="">0</span> </div>
+            </div>
+            
+                <table id="table_row" class="table my-2" >
+                    <tr class="my-2">
+                        <th class="px-lg-5 mr-lg-5" id="produc">PRODUCTS</th>
+                        <th class="px-lg-5 ml-lg-5" id="prc">PRICE</th>
+                        <th class="px-lg-5 ml-lg-1" id="quantity">QUANTITY</th>
+                        <th class="px-lg-5 ml-lg-3" id="tel">TOTAL</th>
+                    </tr>
+                    <p id="items"></p>
+                </table>
+            <div class="d-flex flex-row justify-content-between align-items-center pt-lg-4 pt-2 pb-3 border-bottom mobile">
+                                    
+
+            <div class="d-flex flex-row justify-content-between align-items-center pt-4 pb-3 mobile">
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container bg-light rounded-bottom py-4" id="zero-pad">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-10 col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="/vivo"><button class="btn btn-sm bg-light border border-dark rounded-3">GO BACK</button></a>
+                </div>
+                <div class="px-md-0 px-1" id="footer-font">
+                    <b class="pl-md-4">GRAND TOTAL ₹.<span class="pl-md-4" id="grand"> </span>/-</b>
+                </div>
+                <div>
+                    <a href="#step2"><button class="btn btn-sm bg-dark text-white px-lg-5 px-3 rounded-3">CONTINUE</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+</div>      
+<br>
+<br>    
+<br>    
+
+
+
+
+
+<!-- _______________________________________________________________________________ -->
+
+
+<div class="container bg-white rounded-top mt-5" id="zero-pad">
+    <div class="container" id="step2">
+    <div class="row d-flex justify-content-center">
+    <div class="col my-5" >
+        <h2 class="mb-5">Enter the dilivery Address</h2>
+        <form method="post" action="/checkout/">{% csrf_token %}
+            <input type="hidden" name="itemsJson" id="itemsJson">
+            <div class="form-row">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="email" class="form-control" id="email" placeholder="Email"  name="email"><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="address1" placeholder="address1" name="address1"><br>
+                    </div>
+                
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="address2" placeholder="address2" name="address2"><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input name="city" type="text" class="form-control" id="city" placeholder="city">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="state" name="state" placeholder="State">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <br><input type="text" class="form-control"  id="country" name="countey" placeholder="country">
+                    </div>
+                    <div class="col-6">
+                        <br><input type="text" class="form-control"  id="zip_code" name="zip_code" placeholder="zip_code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <br><input type="tel" class="form-control" id="phone" name="phone" placeholder="phonenumber">
+                    </div>
+                    <div class="col-6">
+                        <br><input type="tel" class="form-control" id="phone2" name="phone2" placeholder="phonenumber2">
+                    </div>
+                </div>
+                
+            </div>
+            <br>
+            
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-outline-dark px-5 align-items-center">Place Order</button>
+                </div>
+            
+        </form>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+console.log(cart);
+var sum = 0;
+var grand_total=0;
+if ($.isEmptyObject(cart)) {
+    //if object is empty
+    mystr = `<p class="text-danger ">Your cart is empty, please add some items to your cart before checking out!</p>`
+    $('#items').append(mystr);
+} else {
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let itemprice = cart[item][2];
+        let total = qty * itemprice;
+        sum = sum + qty;
+        grand_total += total;
+        
+        
+        
+        grand_t = `${grand_total}`
+        line = `<tr id="list">
+        <td class="px-lg-5 mr-lg-5" id="produc">${name}</td>
+        <td class="px-lg-5 ml-lg-5" id="prc">${itemprice}</td>
+        <td class="px-lg-5 ml-lg-1" id="quantity">${qty}</td>
+        <td class="px-lg-5 ml-lg-3" id="tel">${total}</td></tr>`;
+        $('#table_row').append(line);
+        $('grand').append(grand_t);
+
+    }
+}
+
+document.getElementById('grand').innerHTML = grand_total;
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+document.getElementById('cart1').innerHTML = sum;
+
+$('#itemsJson').val(JSON.stringify(cart));
+{% if thank %}
+// alert("Thanks for ordering with us. Your order id is {{id}}. Use it to track your order using our order tracker")
+line2 =  `<div class="card"><h4 class="bg-white text-center mt-5">Thanks for ordering with us.<br> Your order ID is <b>"{{id}}"</b>.<br><br> <pre>Come Again </pre> <br><a href="/vivo/"><button class="btn btn-outline-dark" type="submit">Home Page</button></h4>`;
+document.getElementById('zero-pad').innerHTML = line2;
+localStorage.clear();
+// document.location="/vivo";
+{%endif%}
+</script>
+{% endblock %}
+

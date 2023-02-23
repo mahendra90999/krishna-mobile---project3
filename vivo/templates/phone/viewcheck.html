@@ -1,0 +1,46 @@
+{% extends 'phone/basic.html' %}
+
+{% block title %} About Us {%endblock%}
+
+
+{% block body %} 
+
+<div class="container">
+    <div class='row'>
+        <div class="col-md-6">
+            <div class="row">
+                <img src="/media/{{product.image}}" width='350px' height="600px" class="border dark">
+            </div>
+              
+        </div>
+
+        <div class="col-md-4 mx-4">
+            <h1 id="namepr{{product.product_id}}">{{product.product_name}}</h1>
+            <p class="fs-1">₹. {{product.price}}/-</p>
+            
+            <div class="row">
+                <span id="divpr{{product.product_id}}" class="divpr">
+                        <button id="pr{{product.product_id}}" type="submit" class='btn btn-outline-dark mx-2 my-2 fs-4 rounded-4 cart' >Add to cart</button>
+                    <button class='btn btn-outline-dark mx-2 my-2 fs-4 rounded-4'>Buy Now</button>
+                    
+                </span>
+            </div>  
+            <div class=" fs-3"><b>Product Details</b></div>
+            <p class="fs-5">{{product.desc}}</p>
+            
+            
+            <div class=" fs-3 mt-5"><b>Save this product for later</b></div>
+            <button class='btn btn-outline-dark mx-2 my-2 fs-4 rounded-4'><span><i class="fa-regular fa-heart"></i></span> Favorite</button>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+
+
+{% block js %}
+<script>
+
+</script>
+
+{% endblock %}
